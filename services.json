@@ -1,0 +1,80 @@
+[
+  {
+    "abbreviation": "EC2",
+    "fullName": "Elastic Compute Cloud",
+    "module": "I. Compute",
+    "description": "Virtual servers in the cloud that provide scalable computing capacity. You can launch instances with different configurations of CPU, memory, storage, and networking to match your workload requirements.",
+    "usecase": "Host a web application backend on a t3.medium instance with auto-scaling to handle traffic spikes during peak hours.",
+    "additionalInfo": [
+      "Pay only for what you use with per-second billing",
+      "Choose from multiple instance types optimized for different use cases",
+      "Launch instances in multiple availability zones for high availability",
+      "Use Elastic IPs for static IP addresses"
+    ]
+  },
+  {
+    "abbreviation": "Lambda",
+    "fullName": "AWS Lambda",
+    "module": "I. Compute",
+    "description": "Serverless compute service that runs code in response to events without provisioning or managing servers. Pay only for compute time consumed.",
+    "usecase": "Automatically generate thumbnails whenever a user uploads an image to S3, with the function scaling automatically based on upload frequency.",
+    "additionalInfo": [
+      "Supports multiple programming languages (Node.js, Python, Java, Go, etc.)",
+      "Automatic scaling from zero to thousands of concurrent executions",
+      "Integrated with AWS services via event triggers",
+      "First 1 million requests per month are free"
+    ]
+  },
+  {
+    "abbreviation": "S3",
+    "fullName": "Simple Storage Service",
+    "module": "II. Storage",
+    "description": "Object storage service offering industry-leading scalability, data availability, security, and performance. Store and retrieve any amount of data at any time from anywhere on the web.",
+    "usecase": "Store user-uploaded images for a social media application with automatic image optimization using Lambda triggers.",
+    "additionalInfo": [
+      "Durability of 99.999999999% (11 nines)",
+      "Multiple storage classes for cost optimization",
+      "Versioning and lifecycle policies supported",
+      "Built-in encryption and access control"
+    ]
+  },
+  {
+    "abbreviation": "RDS",
+    "fullName": "Relational Database Service",
+    "module": "II. Storage",
+    "description": "Managed relational database service supporting multiple engines (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB). AWS handles backup, patching, and hardware provisioning.",
+    "usecase": "Run a PostgreSQL database for an e-commerce platform with automated daily backups and Multi-AZ deployment for high availability.",
+    "additionalInfo": [
+      "Automated backups with point-in-time recovery",
+      "Multi-AZ deployments for disaster recovery",
+      "Read replicas for improved read performance",
+      "Supports encryption at rest and in transit"
+    ]
+  },
+  {
+    "abbreviation": "VPC",
+    "fullName": "Virtual Private Cloud",
+    "module": "III. Networking",
+    "description": "Isolated virtual network within AWS cloud where you can launch resources in a defined virtual network. Complete control over network configuration including IP address ranges, subnets, and routing tables.",
+    "usecase": "Create a secure network with public subnets for web servers accessible from the internet, and private subnets for databases accessible only from the application tier.",
+    "additionalInfo": [
+      "Create up to 5 VPCs per region by default",
+      "Use security groups and NACLs for network security",
+      "Connect to on-premises networks via VPN or Direct Connect",
+      "Enable VPC Flow Logs for network traffic monitoring"
+    ]
+  },
+  {
+    "abbreviation": "IAM",
+    "fullName": "Identity and Access Management",
+    "module": "IV. Security",
+    "description": "Service for securely controlling access to AWS resources. Create and manage users, groups, roles, and policies to specify who can access which resources.",
+    "usecase": "Create a developer role with permissions to deploy to S3 and Lambda, while restricting access to production databases.",
+    "additionalInfo": [
+      "Free service with no additional charges",
+      "Supports multi-factor authentication (MFA)",
+      "Integrate with corporate directories via SAML 2.0",
+      "Fine-grained permissions using IAM policies"
+    ]
+  }
+]
