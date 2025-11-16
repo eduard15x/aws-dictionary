@@ -191,6 +191,8 @@ function escapeHtml(str){
     .replaceAll("'",'&#39;');
 }
 
+init();
+
 // Load saved theme on startup
 document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme") || "light";
@@ -204,6 +206,4 @@ function toggleTheme() {
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
 }
-
-
-init();
+window.toggleTheme = toggleTheme; // <-- make it global
