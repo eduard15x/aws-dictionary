@@ -192,18 +192,3 @@ function escapeHtml(str){
 }
 
 init();
-
-// Load saved theme on startup
-document.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    document.documentElement.setAttribute("data-theme", savedTheme);
-});
-
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    const newTheme = (currentTheme === "dark") ? "light" : "dark";
-
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-}
-window.toggleTheme = toggleTheme; // <-- make it global
