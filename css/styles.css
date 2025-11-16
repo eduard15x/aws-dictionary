@@ -1,9 +1,5 @@
 /* -- color variables inspired by your global.scss -- */
 :root{
-  --bg-color: #ffffff;
-  --text-color: #222222;
-  --card-bg: #f7f7f7;
-  
   --background: #fafafa;
   --foreground: #242424;
   --card: #ffffff;
@@ -19,29 +15,15 @@
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* DARK THEME */
-[data-theme="dark"] {
-  --bg-color: #1e1e1e;
-  --text-color: #eeeeee;
-  --card-bg: #2a2a2a;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 /* layout */
 html,body{height:100%}
 body{
   margin:0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background:var(--background);
+  color:var(--foreground);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  transition: background 0.3s, color 0.3s;
 }
-
-
 .container{
   max-width:var(--max-width);
   margin:0 auto;
@@ -143,25 +125,6 @@ body{
 .flex { display:flex; }
 .items-start { align-items:flex-start; }
 .gap-4 { gap:16px; }
-
-
-/* Example card style */
-.card {
-  background: var(--card-bg);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-/* The toggle button */
-.theme-toggle {
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
 
 /* responsive */
 @media (max-width:640px){
