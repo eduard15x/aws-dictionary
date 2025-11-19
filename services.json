@@ -1,80 +1,420 @@
 [
   {
+    "id": "1",
+    "module": "I. Introduction to the Cloud",
+    "abbreviation": "CloudIntro",
+    "fullName": "Introduction to Cloud Computing",
+    "description": "Covers foundational cloud concepts including the definition of cloud computing, value proposition, shared responsibility model, global infrastructure, and types of cloud deployment models. Introduces IaaS, PaaS, SaaS, elasticity, pay-as-you-go pricing, and basic AWS terminology.",
+    "usecase": "Used as a baseline for all cloud learners to understand how cloud computing changes infrastructure operations, business agility, cost models, and scaling strategies.",
+    "additionalInfo": [
+      "Deployment models: public, private, hybrid cloud.",
+      "Cloud advantages: agility, on-demand provisioning, elasticity, cost optimization, resiliency.",
+      "AWS global infrastructure: regions, availability zones, edge locations.",
+      "Shared Responsibility Model: AWS manages the cloud, customers secure configurations.",
+      "Cloud economics: OpEx vs CapEx, right-sizing, consumption-based pricing."
+    ]
+  },
+  {
+    "id": "2",
+    "module": "II. Compute in the Cloud",
+    "abbreviation": "ComputeGeneral",
+    "fullName": "General Cloud Compute Concepts",
+    "description": "Overview of compute concepts like virtual machines, containers, serverless computing, autoscaling, availability, and elasticity. Explains how compute resources are provisioned and managed in AWS.",
+    "usecase": "Foundation for understanding compute services such as EC2, Autoscaling, container services, and serverless runtimes.",
+    "additionalInfo": [
+      "Compute models: virtual machines, containerized workloads, serverless functions.",
+      "Workload types: stateful vs stateless, batch vs real-time, event-driven.",
+      "Elasticity: automatic scale-out and scale-in to meet traffic demands.",
+      "Cost drivers: instance type, usage hours, storage attached, data transfer."
+    ]
+  },
+  {
+    "id": "2.1",
+    "module": "II. Compute in the Cloud",
     "abbreviation": "EC2",
     "fullName": "Elastic Compute Cloud",
-    "module": "I. Compute",
-    "description": "Virtual servers in the cloud that provide scalable computing capacity. You can launch instances with different configurations of CPU, memory, storage, and networking to match your workload requirements.",
-    "usecase": "Host a web application backend on a t3.medium instance with auto-scaling to handle traffic spikes during peak hours.",
+    "description": "Virtual servers in the cloud offering flexible compute capacity with full control over OS, networking, and software environment. Supports a variety of instance families optimized for general purpose, compute, memory, storage, and GPU workloads.",
+    "usecase": "Hosting web servers, application backends, batch processing, GPU workloads, enterprise applications, legacy server migrations.",
     "additionalInfo": [
-      "Pay only for what you use with per-second billing",
-      "Choose from multiple instance types optimized for different use cases",
-      "Launch instances in multiple availability zones for high availability",
-      "Use Elastic IPs for static IP addresses"
+      "Instance types: t-series, m-series, r-series, c-series, p/g-series for GPUs.",
+      "Storage: EBS volumes, instance store, shared file systems.",
+      "Scaling: EC2 Auto Scaling, Launch Templates, Spot instances.",
+      "Networking: security groups, ENIs, VPC placement.",
+      "Pricing models: On-Demand, Reserved Instances, Savings Plans, Spot."
     ]
   },
   {
-    "abbreviation": "Lambda",
-    "fullName": "AWS Lambda",
-    "module": "I. Compute",
-    "description": "Serverless compute service that runs code in response to events without provisioning or managing servers. Pay only for compute time consumed.",
-    "usecase": "Automatically generate thumbnails whenever a user uploads an image to S3, with the function scaling automatically based on upload frequency.",
+    "id": "3",
+    "module": "III. Exploring Compute Services",
+    "abbreviation": "ComputeServices",
+    "fullName": "AWS Compute Services Overview",
+    "description": "Deep dive into AWS compute offerings including AWS Lambda, Amazon ECS, Amazon EKS, AWS Fargate, and Lightsail. Covers orchestration, event-driven compute, container registries, and microservices patterns.",
+    "usecase": "Selecting the appropriate compute service for microservices, containers, event-driven systems, serverless APIs, and lightweight deployments.",
     "additionalInfo": [
-      "Supports multiple programming languages (Node.js, Python, Java, Go, etc.)",
-      "Automatic scaling from zero to thousands of concurrent executions",
-      "Integrated with AWS services via event triggers",
-      "First 1 million requests per month are free"
+      "Serverless: AWS Lambda for event-driven compute.",
+      "Container orchestration: ECS (AWS-native), EKS (Kubernetes).",
+      "Execution models: Fargate (serverless containers) vs EC2-backed nodes.",
+      "Container registry: Amazon ECR for image storage.",
+      "Use cases: microservices, CI/CD pipelines, data processing."
     ]
   },
   {
-    "abbreviation": "S3",
-    "fullName": "Simple Storage Service",
-    "module": "II. Storage",
-    "description": "Object storage service offering industry-leading scalability, data availability, security, and performance. Store and retrieve any amount of data at any time from anywhere on the web.",
-    "usecase": "Store user-uploaded images for a social media application with automatic image optimization using Lambda triggers.",
+    "id": "4",
+    "module": "IV. Going Global",
+    "abbreviation": "GlobalInfra",
+    "fullName": "Global Infrastructure & Content Delivery",
+    "description": "Explains AWS’s global footprint, multi-region architecture, high availability design, latency optimization, and content delivery using Amazon CloudFront and global networking services.",
+    "usecase": "Architecting resilient, low-latency applications deployed across multiple regions or globally distributed user bases.",
     "additionalInfo": [
-      "Durability of 99.999999999% (11 nines)",
-      "Multiple storage classes for cost optimization",
-      "Versioning and lifecycle policies supported",
-      "Built-in encryption and access control"
+      "AWS Global Infrastructure: Regions, AZs, Local Zones, Wavelength.",
+      "Content Delivery: Amazon CloudFront for caching and edge compute.",
+      "Latency optimization: Route 53 routing policies.",
+      "Disaster recovery strategies: backup/restore, pilot light, warm standby, multi-site active/active.",
+      "Data residency & compliance considerations."
     ]
   },
   {
+    "id": "5",
+    "module": "V. Networking",
+    "abbreviation": "Networking",
+    "fullName": "AWS Networking & Connectivity",
+    "description": "Covers VPC fundamentals, subnets, routing, security groups, NAT gateways, Direct Connect, VPN, load balancing, and network security principles. Explains hybrid cloud architecture.",
+    "usecase": "Design secure network boundaries, connect on-premises environments, build scalable web applications, and control traffic flow using AWS networking resources.",
+    "additionalInfo": [
+      "VPC components: IGW, NAT, route tables, NACLs.",
+      "Load balancing: ALB, NLB, Gateway Load Balancer.",
+      "Connectivity: Direct Connect, Site-to-Site VPN, Transit Gateway.",
+      "Security layers: WAF, Shield, security groups vs NACLs.",
+      "Networking patterns: hub-and-spoke, multi-VPC, hybrid networks."
+    ]
+  },
+  {
+    "id": "6",
+    "module": "VI. Storage",
+    "abbreviation": "Storage",
+    "fullName": "AWS Cloud Storage Services",
+    "description": "Overview of cloud storage types including object storage, block storage, file storage, archival storage, backup, and data transfer capabilities. Explains durability, availability, and lifecycle policies.",
+    "usecase": "Selecting the best storage type for applications such as backups, content hosting, shared file storage, databases, media streaming, and big data workloads.",
+    "additionalInfo": [
+      "Object Storage: Amazon S3 (buckets, lifecycle rules, versioning).",
+      "Block Storage: EBS for low-latency, high-performance workloads.",
+      "File Storage: EFS for Linux and FSx for Windows/Lustre.",
+      "Archival: S3 Glacier and Glacier Deep Archive.",
+      "Data transfer: Snowball, DataSync, Transfer Family."
+    ]
+  },
+  {
+    "id": "7",
+    "module": "VII. Databases",
+    "abbreviation": "DBs",
+    "fullName": "Databases",
+    "description": "Overview of database concepts, categories, and how database services are offered and consumed in the cloud. Covers relational and non-relational models, transactional vs analytical workloads, OLTP vs OLAP, consistency models, scaling approaches, and managed database tradeoffs.",
+    "usecase": "Central reference for choosing, architecting, securing, operating, and scaling database services for applications (web/mobile backends, analytics pipelines, caching layers, graph workloads, time-series, backups and disaster recovery).",
+    "additionalInfo": [
+      "Core Concepts: schemas, tables/collections, indexes, ACID, BASE, partitioning/sharding, replication, failover, backups, point-in-time recovery (PITR).",
+      "Operational Concerns: provisioning, monitoring, patching, maintenance windows, scaling (vertical vs horizontal), cost drivers (storage, IOPS, backup, data transfer).",
+      "Integration: connectors, ORMs, SDKs, data migration tools (e.g., DMS), event-driven DB integrations (Streams/Change Data Capture).",
+      "Architectural Patterns: single-master vs multi-master, read replicas, cache-aside, write-through, CQRS, event sourcing, data lakes vs operational stores.",
+      "Compliance & Governance: encryption at rest/in transit, audit logging, access control, retention policies, backups and cross-region replication."
+    ]
+  },
+  {
+    "id": "7.1",
+    "module": "VII. Databases",
+    "abbreviation": "SQL",
+    "fullName": "Relational Databases (SQL)",
+    "description": "Structured data stores that use schemas (tables, columns, types) and SQL for queries. Provide strong consistency, transactions (ACID), complex queries and joins, indexing, and mature tooling for data integrity.",
+    "usecase": "Transactional systems (banking, e-commerce), business applications, systems that need joins and relational integrity, OLTP workloads, reporting with normalized schemas.",
+    "additionalInfo": [
+      "Common engines: MySQL, PostgreSQL, Microsoft SQL Server, Oracle (managed or self-managed).",
+      "Scaling approaches: vertical scaling (bigger instance), read replicas for read scaling, partitioning/partition pruning for large datasets.",
+      "Operational features to consider: automated backups, PITR, maintenance windows, major/minor patch management.",
+      "Design best practices: normalize where appropriate, index selectively, avoid unbounded scans, use prepared statements/parameterized queries."
+    ]
+  },
+  {
+    "id": "7.2",
+    "module": "VII. Databases",
+    "abbreviation": "NoSQL",
+    "fullName": "Non-Relational Databases (NoSQL)",
+    "description": "Databases that provide flexible schemas or schema-less storage, optimized for scale, high throughput and availability. Includes key-value, document, wide-column, and graph models with diverse consistency and query capabilities.",
+    "usecase": "High-scale web/mobile backends, session stores, user profiles, IoT time-series ingestion, content catalogs, semi-structured data, graph workloads.",
+    "additionalInfo": [
+      "Types: key-value stores, document stores (JSON), column-family stores, graph databases, time-series DBs.",
+      "Design principle: model data around access patterns (denormalization often required).",
+      "Consistency models: eventual, strong (depends on service), tunable consistency in some systems.",
+      "Tradeoffs: simplicity and scale vs weaker relational features (no multi-table transactions or complex joins in many cases)."
+    ]
+  },
+  {
+    "id": "7.3",
+    "module": "VII. Databases",
     "abbreviation": "RDS",
-    "fullName": "Relational Database Service",
-    "module": "II. Storage",
-    "description": "Managed relational database service supporting multiple engines (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB). AWS handles backup, patching, and hardware provisioning.",
-    "usecase": "Run a PostgreSQL database for an e-commerce platform with automated daily backups and Multi-AZ deployment for high availability.",
+    "fullName": "Amazon Relational Database Service (RDS)",
+    "description": "Managed relational database service that automates provisioning, patching, backup, recovery, and scaling for engines such as Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle, and SQL Server.",
+    "usecase": "Easily run production-grade relational databases with reduced operational overhead: transactional applications, ERP, CRM, and legacy app migrations.",
     "additionalInfo": [
-      "Automated backups with point-in-time recovery",
-      "Multi-AZ deployments for disaster recovery",
-      "Read replicas for improved read performance",
-      "Supports encryption at rest and in transit"
+      "Key features: automated backups, snapshots, Multi-AZ deployments for high availability, read replicas (where supported), monitoring via CloudWatch, integration with IAM and KMS.",
+      "Engines supported: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Aurora (as a specialized engine).",
+      "Scaling: scale compute/storage vertically, read replicas for horizontal read scaling; storage autoscaling available.",
+      "Maintenance: automated minor version upgrades; user-controlled maintenance windows for major events.",
+      "Networking & Security: VPC placement, subnet groups, security groups, encryption at rest using AWS KMS, encryption in transit (TLS).",
+      "Backups & DR: Automated snapshots and manual snapshots; cross-region snapshot copy for disaster recovery planning.",
+      "Common integrations: DMS (Database Migration Service) for migrations, CloudWatch for metrics, Event Notifications for lifecycle events.",
+      "Limitations & considerations: instance class and IOPS influence cost and performance; some engines have licensing considerations (Oracle, SQL Server)."
     ]
   },
   {
-    "abbreviation": "VPC",
-    "fullName": "Virtual Private Cloud",
-    "module": "III. Networking",
-    "description": "Isolated virtual network within AWS cloud where you can launch resources in a defined virtual network. Complete control over network configuration including IP address ranges, subnets, and routing tables.",
-    "usecase": "Create a secure network with public subnets for web servers accessible from the internet, and private subnets for databases accessible only from the application tier.",
+    "id": "7.4",
+    "module": "VII. Databases",
+    "abbreviation": "Aurora",
+    "fullName": "Amazon Aurora",
+    "description": "High-performance managed relational database compatible with MySQL and PostgreSQL, designed for the cloud with a distributed, fault-tolerant storage architecture and automated scaling of storage.",
+    "usecase": "Applications that need high throughput and low-latency relational storage with managed HA: SaaS multi-tenant backends, e-commerce, analytics-backed transactional apps.",
     "additionalInfo": [
-      "Create up to 5 VPCs per region by default",
-      "Use security groups and NACLs for network security",
-      "Connect to on-premises networks via VPN or Direct Connect",
-      "Enable VPC Flow Logs for network traffic monitoring"
+      "Architecture: decoupled compute and distributed storage replicating across multiple AZs with fast crash recovery and continuous backup to S3.",
+      "Performance: often offers better throughput than vanilla MySQL/Postgres on equivalent hardware due to storage and engine optimizations.",
+      "Scaling: read replicas (Aurora Replicas) with fast failover; serverless option (Aurora Serverless v2) for variable workloads.",
+      "High availability: built-in fault isolation, automated failover, and cross-region read replicas for geo-distribution.",
+      "Operational features: backtrack (time-travel for small rollbacks), automated backups, snapshots, Global Database for cross-region read scaling and disaster recovery.",
+      "Security: supports encryption at rest (KMS), in-transit TLS, IAM authentication, VPC and security groups.",
+      "Cost drivers: instance hours, storage consumed, I/O operations, backup storage and data transfer for cross-region replication.",
+      "Migration: supports native engine migration paths and AWS DMS for lift-and-shift."
     ]
   },
   {
-    "abbreviation": "IAM",
-    "fullName": "Identity and Access Management",
-    "module": "IV. Security",
-    "description": "Service for securely controlling access to AWS resources. Create and manage users, groups, roles, and policies to specify who can access which resources.",
-    "usecase": "Create a developer role with permissions to deploy to S3 and Lambda, while restricting access to production databases.",
+    "id": "7.5",
+    "module": "VII. Databases",
+    "abbreviation": "DynamoDB",
+    "fullName": "Amazon DynamoDB",
+    "description": "Fully managed key-value and document database that delivers single-digit millisecond performance at any scale. Provides serverless operation, automatic partitioning, and optional DynamoDB Streams for change data capture.",
+    "usecase": "High-scale web apps, leaderboards, session stores, mobile backends, IoT telemetry ingestion, ad-tech, and any workload requiring predictable low latency at scale.",
     "additionalInfo": [
-      "Free service with no additional charges",
-      "Supports multi-factor authentication (MFA)",
-      "Integrate with corporate directories via SAML 2.0",
-      "Fine-grained permissions using IAM policies"
+      "Data model: items (rows) and attributes (columns) stored in tables; primary keys can be simple or composite; secondary indexes enable alternate access patterns.",
+      "Capacity modes: provisioned capacity (with autoscaling) and on-demand capacity (pay-per-request).",
+      "Scaling & performance: automatic sharding/partitioning, DAX (DynamoDB Accelerator) for microsecond caching, adaptive capacity for uneven workloads.",
+      "Consistency: supports eventually consistent and strongly consistent reads (strong reads cost more/are region-limited).",
+      "Durability & availability: multi-AZ replication by default; global tables for multi-region active-active replication.",
+      "Integrations: Streams for CDC, Lambda triggers, IAM policies, CloudWatch metrics, backups & restores, TTL for data lifecycle management.",
+      "Security: encryption at rest (KMS), VPC endpoints (PrivateLink), fine-grained access control (IAM policies and condition keys), PITR (Point-in-time recovery).",
+      "Design best practices: model for access patterns, avoid hot partitions, use adaptive capacity, consider GSIs/LSIs wisely, batch operations for efficiency."
+    ]
+  },
+  {
+    "id": "7.6",
+    "module": "VII. Databases",
+    "abbreviation": "IN-MEM",
+    "fullName": "In-Memory Caching Services (General)",
+    "description": "Caching layers that store frequently accessed data in memory to reduce latency and lower load on primary databases. Provide sub-millisecond access and are used to accelerate read-heavy workloads.",
+    "usecase": "Session stores, leaderboard counters, frequently-read configuration or metadata, computed results, short-lived tokens, and to reduce database read pressure.",
+    "additionalInfo": [
+      "Models: cache-aside (application controls cache lifecycle), write-through, write-back, and read-through patterns.",
+      "Tradeoffs: caches improve latency but introduce cache consistency complexity; decide TTL and eviction policies carefully.",
+      "Common capabilities: data eviction (LRU/LFU), persistence options in some products, clustering/sharding for scale, and replication for HA.",
+      "Operational concerns: eviction storms, cache warming, cold-start behavior, monitoring hit/miss ratios, and accounting for eventual consistency."
+    ]
+  },
+  {
+    "id": "7.7",
+    "module": "VII. Databases",
+    "abbreviation": "ElastiCache",
+    "fullName": "Amazon ElastiCache (Redis & Memcached)",
+    "description": "Managed, in-memory caching service supporting Redis and Memcached engines. Automates cluster provisioning, patching, backups (Redis), failure detection and recovery.",
+    "usecase": "Accelerate application performance through caching, implement pub/sub workflows (Redis), session storage, real-time analytics, and leaderboard or counters.",
+    "additionalInfo": [
+      "Supported engines: Redis (persistence options, replication, clustering) and Memcached (simple distributed cache).",
+      "Redis features: persistence (RDB/AOF), replication with automatic failover, clustering for horizontal scaling, modules (when supported), Lua scripting.",
+      "Deployment options: single-node, clusters with shards, Multi-AZ (Redis) for high availability.",
+      "Security: VPC-only access, security groups, in-transit encryption (TLS) and at-rest encryption for Redis (when enabled), IAM integration via service roles for management.",
+      "Operational best practices: size nodes for working set, monitor key metrics (CPU, memory, evictions, replication lag), use backup/restore for Redis persistence, test failover scenarios.",
+      "Cost model: instance hours, data transfer, snapshots (for Redis), and cluster topology."
+    ]
+  },
+  {
+    "id": "7.8",
+    "module": "VII. Databases",
+    "abbreviation": "DocDB",
+    "fullName": "Amazon DocumentDB (with MongoDB compatibility)",
+    "description": "Managed document database service compatible with MongoDB workloads. Designed for JSON-like document storage, indexing, and querying with managed storage, backup, and scaling.",
+    "usecase": "Content management, user profiles, catalogs, and any workload that benefits from document model flexibility and MongoDB-compatible drivers.",
+    "additionalInfo": [
+      "Compatibility: supports many MongoDB APIs and drivers—validate version compatibility for driver-specific features.",
+      "Architecture: separation of compute and distributed storage; replicas for read scaling.",
+      "Operational capabilities: automated backups, snapshots, point-in-time restore, monitoring, and Multi-AZ deployments.",
+      "Limitations to check: ensure feature parity for advanced MongoDB features (some server-side modules or specific commands may not be supported).",
+      "Security: VPC, IAM integration for management, encryption at rest via KMS, TLS for in-transit encryption."
+    ]
+  },
+  {
+    "id": "7.9",
+    "module": "VII. Databases",
+    "abbreviation": "Neptune",
+    "fullName": "Amazon Neptune (Graph Database)",
+    "description": "Managed graph database service optimized for storing and querying highly-connected datasets, with support for property graph (Gremlin) and RDF/SPARQL models.",
+    "usecase": "Knowledge graphs, fraud detection, social networks, recommendation engines, network/IT topology analysis.",
+    "additionalInfo": [
+      "Data models: property graphs (TinkerPop/Gremlin) and RDF with SPARQL querying—choose based on application requirements.",
+      "Performance: optimized for graph traversals and queries that would be inefficient in relational or document stores.",
+      "High availability: Multi-AZ, automated backups, read replicas for read scaling.",
+      "Security: VPC-only access, IAM control for management plane operations, encryption at rest (KMS) and in transit (TLS).",
+      "Integrations: can be integrated with analytics pipelines, ML workflows and visualization tools for graph-analysis."
+    ]
+  },
+  {
+    "id": "7.10",
+    "module": "VII. Databases",
+    "abbreviation": "AWSBackup",
+    "fullName": "AWS Backup (for Databases & More)",
+    "description": "Centralized backup service that automates and consolidates backup of AWS services (including RDS, DynamoDB, EBS, EFS, and on-premises via Gateway) with policy-based scheduling and retention.",
+    "usecase": "Implement organization-wide backup policies, retention schedules, compliance archiving, and recoverability across multiple AWS services including relational and non-relational databases.",
+    "additionalInfo": [
+      "Capabilities: centralized policy management, lifecycle (move to cold storage), cross-account and cross-region backup copy for DR, backup activity logging.",
+      "Supported DBs: RDS (including Aurora), DynamoDB (on-demand backups and PITR), DocumentDB (via snapshots/backup features), and others depending on AWS updates.",
+      "Disaster recovery: use cross-region copies and vaults with distinct access controls for recovery objectives.",
+      "Security & compliance: encryption of backups, IAM-based controls over backup vaults, and audit via CloudTrail.",
+      "Operational notes: coordinate backup windows with database maintenance and consider backup impact on performance."
+    ]
+  },
+  {
+    "id": "7.11",
+    "module": "VII. Databases",
+    "abbreviation": "DBSecurity",
+    "fullName": "Database Security & Compliance",
+    "description": "Security considerations, controls, and best practices specific to databases: authentication, authorization, encryption, network controls, monitoring, auditing, and data governance.",
+    "usecase": "Protect sensitive data, meet compliance requirements (e.g., GDPR, PCI, HIPAA), prevent unauthorized access and data leakage, and enable secure operations.",
+    "additionalInfo": [
+      "Authentication & Authorization: use IAM for management plane operations, database-native auth for connections, and role-based access controls; enable least-privilege.",
+      "Encryption: enable encryption at rest (KMS-managed keys) and in-transit (TLS). Use customer-managed keys for separation of duties where required.",
+      "Network Controls: place DBs in private subnets, restrict access with security groups and network ACLs, use VPC endpoints/PrivateLink to avoid public internet exposure.",
+      "Secrets Management: store DB credentials and rotation policies in a secrets manager (e.g., AWS Secrets Manager) and avoid hard-coding credentials.",
+      "Auditing & Monitoring: enable audit logging (e.g., RDS enhanced monitoring, CloudTrail, database audit logs), set up SIEM ingestion and alerts for suspicious activity.",
+      "Backup Security: secure backup storage with encryption and access policies, verify restore procedures as part of compliance audits.",
+      "Data Protection: use masking, tokenization, or field-level encryption for PII; apply retention and deletion policies per regulations.",
+      "Operational Hardening: minimize surface area (close unused ports, disable unused features), prompt patching, periodic vulnerability scans and penetration testing.",
+      "Incident Response: run recovery drills, maintain runbooks for compromised credentials, and automate revocation and rotation procedures."
+    ]
+  },
+  {
+    "id": "7.12",
+    "module": "VII. Databases",
+    "abbreviation": "DBDesignOps",
+    "fullName": "Database Operational Best Practices (Design & Runbooks)",
+    "description": "Practical guidance and runbook-style items for designing schemas, capacity planning, monitoring, backups, and incident response for database services in production.",
+    "usecase": "Provide teams with actionable checklists and patterns to reduce outage risk, improve performance, and ensure recoverability.",
+    "additionalInfo": [
+      "Design checks: model for access patterns, choose indexes for query plans, avoid wide columns and unbounded list attributes, set appropriate fill factors and maintenance tasks.",
+      "Capacity planning: test under load, use representative datasets for benchmarking, plan IOPS and network throughput, enable autoscaling where supported.",
+      "Observability: monitor latency, throughput, replica lag, CPU, memory, disk usage, connection counts, cache hit ratios and slow query logs; create dashboards & alerts.",
+      "Backups & DR: define RTO/RPO, configure automated backups and PITR, validate periodic restores to non-prod environments, keep cross-region copies if required.",
+      "Maintenance: schedule rolling upgrades where available, test engine version upgrades in staging, use parameter groups templates under IaC.",
+      "Runbooks: document steps for failover, promote read-replica, restore from snapshot, rotate credentials, and escalate to vendor or cloud support.",
+      "Cost optimization: right-size instances, use reserved or saving plans for predictable workloads, remove unused replicas and snapshots periodically.",
+      "Automation & IaC: provision DBs and parameter groups via Infrastructure as Code, use CI for schema migrations and migrations tools with rollback strategies."
+    ]
+  },
+  {
+    "id": "7.13",
+    "module": "VII. Databases",
+    "abbreviation": "Migration",
+    "fullName": "Database Migration & Modernization",
+    "description": "Approaches and tools for migrating databases to the cloud or between engines (lift-and-shift, replatform, refactor) including strategies for minimal downtime and data validation.",
+    "usecase": "Migrate on-prem databases to managed cloud databases, modernize legacy systems (e.g., move from monolith to microservices with different persistence), perform homogeneous and heterogeneous migrations.",
+    "additionalInfo": [
+      "Common tools: AWS Database Migration Service (DMS) for continuous replication, native export/import, logical replication, and offline snapshot methods.",
+      "Patterns: cutover (small downtime), blue/green (parallel run with switch), phased migration (per service or table), dual-write with eventual sync (careful with desync).",
+      "Pre-migration checklist: assess schema compatibility, reserved words, stored procedures, triggers, data type differences, and performance characteristics (indexes, queries).",
+      "Testing: run integrity checks, compare row counts, perform reconciliation with checksums, conduct performance and failover tests in staging.",
+      "Post-migration: decommission old systems, update runbooks, finalize cutover date, set up monitoring and alerts, and train operations teams."
+    ]
+  },
+  {
+    "id": "8",
+    "module": "VIII. AI. ML. Data Analysis",
+    "abbreviation": "AIMLAnalytics",
+    "fullName": "Artificial Intelligence, Machine Learning & Data Analytics",
+    "description": "Covers AWS AI/ML services, big data processing, analytics platforms, and data lake solutions. Explains managed ML workflows and serverless analytics using AWS native tools.",
+    "usecase": "Building ML applications, performing business analytics, running distributed ETL workflows, training ML models, and deploying intelligent services.",
+    "additionalInfo": [
+      "AI Services: Rekognition, Comprehend, Polly, Lex, Transcribe, Translate.",
+      "ML Services: Amazon SageMaker (studio, training, inference).",
+      "Analytics: Athena (SQL on S3), Glue ETL, EMR, Kinesis, MSK.",
+      "Data Lakes: Lake Formation + S3.",
+      "Processing engines: Spark, Presto, Flink, Hadoop."
+    ]
+  },
+  {
+    "id": "9",
+    "module": "IX. Security",
+    "abbreviation": "Security",
+    "fullName": "AWS Security & Identity Services",
+    "description": "Covers identity and access management, data protection, AWS security services, and best practices for securing cloud resources following the shared responsibility model.",
+    "usecase": "Designing secure applications, enforcing least-privilege, encrypting data, monitoring for threats, and meeting compliance obligations.",
+    "additionalInfo": [
+      "Identity: IAM, SSO, Organizations, Access Analyzer.",
+      "Detection: GuardDuty, Security Hub, Inspector, Detective.",
+      "Protection: KMS, Secrets Manager, WAF, Shield.",
+      "Governance: SCPs, audit logs, CloudTrail.",
+      "Best practices: least-privilege, MFA, zero-trust, encryption everywhere."
+    ]
+  },
+  {
+    "id": "10",
+    "module": "X. Monitoring, Compliance, Governance in AWS Cloud",
+    "abbreviation": "MonitoringGovernance",
+    "fullName": "Governance, Compliance & Monitoring",
+    "description": "Explains AWS observability tools, audit and compliance frameworks, monitoring strategies, and governance controls to enforce organizational policies.",
+    "usecase": "Implementing centralized monitoring, enforcing compliance, setting guardrails, collecting logs, and auditing resource configurations.",
+    "additionalInfo": [
+      "Monitoring: CloudWatch metrics, logs, alarms, dashboards.",
+      "Audit: CloudTrail events, Access Analyzer.",
+      "Configuration: AWS Config rules, conformance packs.",
+      "Compliance: Artifact, security frameworks (SOC, PCI, HIPAA).",
+      "Governance: Control Tower, Service Catalog, tagging strategies."
+    ]
+  },
+  {
+    "id": "11",
+    "module": "XI. Pricing and Support",
+    "abbreviation": "PricingSupport",
+    "fullName": "Pricing Models & AWS Support Plans",
+    "description": "Covers AWS cost structure, calculators, billing tools, cost management, and support tiers. Explains different pricing models across compute, storage, and database services.",
+    "usecase": "Optimizing cost, budgeting, selecting support level, and controlling cloud spend for enterprise environments.",
+    "additionalInfo": [
+      "Pricing models: on-demand, reserved, spot, savings plans.",
+      "Cost management: Cost Explorer, Budgets, Cost & Usage Reports.",
+      "Optimization: rightsizing, autoscaling, lifecycle policies.",
+      "Support tiers: Basic, Developer, Business, Enterprise.",
+      "Tools: Pricing Calculator, Trusted Advisor."
+    ]
+  },
+  {
+    "id": "12",
+    "module": "XII. Migrating to the AWS Cloud",
+    "abbreviation": "Migration",
+    "fullName": "Cloud Migration & Modernization",
+    "description": "Explains cloud migration strategies, tools, and frameworks including rehost, replatform, refactor, and data migration. Covers MAP (Migration Acceleration Program).",
+    "usecase": "Moving on-prem workloads, datacenter exit strategies, database migration, application modernization, hybrid architectures.",
+    "additionalInfo": [
+      "Migration strategies: 6 R’s (Rehost, Replatform, Repurchase, Refactor, Retire, Retain).",
+      "Tools: AWS DMS, SMS, Snowball, Application Migration Service.",
+      "Discovery: Migration Hub, data collection agents.",
+      "Modernization: microservices, serverless adoption.",
+      "Operations: cutover planning, testing, validation."
+    ]
+  },
+  {
+    "id": "13",
+    "module": "XIII. Well-Architected Solutions",
+    "abbreviation": "WAFramework",
+    "fullName": "AWS Well-Architected Framework",
+    "description": "Covers the six pillars of AWS Well-Architected design: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability. Provides guidance on building secure, high-performing, resilient, and efficient cloud systems.",
+    "usecase": "Reviewing architectures, improving system reliability, identifying risks, optimizing cost and performance, designing enterprise-grade cloud workloads.",
+    "additionalInfo": [
+      "Pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability.",
+      "Reviews: architectural assessments, remediation plans.",
+      "Tools: Well-Architected Tool in AWS Console.",
+      "Design patterns: multi-AZ, automation, observability, decoupling.",
+      "Operational goals: resilience, scalability, cost savings."
     ]
   }
 ]
